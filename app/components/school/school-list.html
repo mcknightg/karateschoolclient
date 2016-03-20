@@ -1,0 +1,23 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+
+    <i class="badge pull-right">{{modelList.length}}</i>
+    <h3 class="panel-title">Schools</h3>
+    <input type="text" placeholder="Search for something..."  (keyup)="search()" class="form-control" [(ngModel)]="term">
+
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <ul class="list-group col-md-12">
+        <School-Item class="list-group-item col-md-4" *ngFor="#modelData of modelList; #i=index" [modelData]="modelData"></School-Item>
+      </ul>
+    </div>
+  </div>
+</div>
+<button type="button" class="btn btn-success pull-left" (click)="toggle()" >
+    <span class="fa fa-code"></span> Json
+</button>
+<div [hidden]="!visible">
+    <pre>{{modelList | json}}</pre>
+</div>
+
